@@ -9,14 +9,14 @@ function EditTask({ id}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const taskItem =useSelector(state => state.todos.find(item => item.id === props.id) )
+    const taskItem =useSelector(state => state.todos.find(item => item.id === id) )
      const [newDescription ,setNewDescription ]= useState(taskItem.description)
 
      const dispatch =useDispatch()
 
     const handleSubmit =() =>{
-    dispatchEvent(editTask({id:taskItem.id,description: newDescription }))
-   handleChange()         
+    dispatch(editTask({id:taskItem.id,description: newDescription }))
+  handleClose()   
 }
    const handleChange =(e) =>{
        setNewDescription(e.target.value)
@@ -32,7 +32,7 @@ function EditTask({ id}) {
             <Modal.Title>Edit Task</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <Form.Control type ="text"  defaValue={taskItem.description} onChange={handleChange}/>
+          <Form.Control type ="text"  defaultValue={taskItem.description} onChange={handleChange}/>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

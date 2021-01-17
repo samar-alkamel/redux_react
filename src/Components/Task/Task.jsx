@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import "./Task.css"
-import {ChangeIsDone} from "../Redux/Actions";
+import {ChangeIsDone} from "../../Redux/Actions"
 
 import EditTask from  "../EditTask/EditTask";
 
